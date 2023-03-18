@@ -1,0 +1,22 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.App{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.calc label, h2, h3{
+  text-align: left;
+  display: block;
+}
+
+.calc input{
+  width: 100%;
+  padding: 6px 10px;
+}
