@@ -20,7 +20,7 @@ function Home() {
         navigate('/Login')
     }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault
 
     let body = {
@@ -35,7 +35,7 @@ function Home() {
       Grains: grains
     }
 
-    let request = new Request('http://127.0.0.1:8000/calc', {
+    let request = new Request('http://localhost:5000/calc', {
       method: "POST",
       mode: "no-cors",
       headers: new Headers({
@@ -45,7 +45,7 @@ function Home() {
     })
 
     fetch(request)
-    
+    .then(res => console.log(res))   
 
   }
 
