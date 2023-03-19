@@ -14,6 +14,21 @@ function Home() {
   const [redMeat, setRedMeat] = useState(0);
   const [dairy, setDairy] = useState(0);
   const [grains, setGrains] = useState(0);
+
+  const [ephone, setePhone] = useState(0);
+  const [ePC, setePC] = useState(0);
+  const [eTV, seteTV] = useState(0);
+  const [ecar, seteCar] = useState(0);
+  const [ebike, seteBike] = useState(0);
+  const [ebus, seteBus] = useState(0);
+  const [eredMeat, seteRedMeat] = useState(0);
+  const [edairy, seteDairy] = useState(0);
+  const [egrains, seteGrains] = useState(0);
+  const [electronic, setelectronic] = useState(0);
+  const [travel, settravel] = useState(0);
+  const [food, setfood] = useState(0);
+  const [emission, setEmission] = useState(0);
+
   const navigate = useNavigate();
 
     const redirect = () => {
@@ -21,7 +36,7 @@ function Home() {
     }
 
   const handleSubmit = async (event) => {
-    event.preventDefault
+    event.preventDefault()
 
     let body = {
       Phone: phone,
@@ -37,7 +52,6 @@ function Home() {
 
     let request = new Request('http://localhost:5000/calc', {
       method: "POST",
-      mode: "no-cors",
       headers: new Headers({
         'Content-Type': 'application/json'
       }),
@@ -45,8 +59,24 @@ function Home() {
     })
 
     fetch(request)
-    .then(res => console.log(res))   
+    .then(res => {return res.json()})
+    .then(data => {
+      setePhone(data.Phone);
+      setePC(data.PC);
+      seteTV(data.TV);
+      seteCar(data.Car);
+      seteBike(data.Bike);
+      seteBus(data.Bus);
+      seteRedMeat(data['Red Meat']);
+      seteDairy(data.Dairy);
+      seteGrains(data.grains)
+      setelectronic(data['Total Electronic']);
+      settravel(data['Total Travel']);
+      setfood(data['Total Food']);
+      setEmission(data['Total Emission']);
 
+    })
+    .catch(e => console.log(e))
   }
 
   return (
@@ -153,6 +183,49 @@ function Home() {
             <input type='submit'/>
           </form>
         </div>
+      </div>
+      <div className="result">
+        <ul>
+          <li>
+            Phone: {ephone}
+          </li>
+          <li>
+            PC: {ePC}
+          </li>
+          <li>
+            TV: {eTV}
+          </li>
+          <li>
+            Car: {ecar}
+          </li>
+          <li>
+            Bike: {ebike}
+          </li>
+          <li>
+            Bus: {ebus}
+          </li>
+          <li>
+            Red Meat: {eredMeat}
+          </li>
+          <li>
+            Dairy: {edairy}
+          </li>
+          <li>
+            Grains: {egrains}
+          </li>
+          <li>
+            Total Electronic: {electronic}
+          </li>
+          <li>
+            Total Travel: {travel}
+          </li>
+          <li>
+            Total Food: {food}
+          </li>
+          <li>
+            Total Emission: {emission}
+          </li>
+        </ul>
       </div>
     </div>
   )

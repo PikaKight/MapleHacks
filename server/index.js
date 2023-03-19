@@ -1,5 +1,6 @@
 const express = require("express");
-
+const cors = require("cors");
+const bcrypt = require("bcrypt")
 const {saveData, findAll, checkExist, update, deleteOne, findOneStr} = require('./database.js');
 const Account = require('./schema/account');
 
@@ -9,6 +10,7 @@ const port = 5000;
 const app = express();
 
 app.use(express.json())
+app.use(cors());
 
 
 const calcEmission = (type, value) => {
@@ -92,7 +94,7 @@ app.post('/signup', async (req, res) => {
 
         } catch (error) {
             // send a status 500 if the account couldn't be created
-            res.status(500).json({msg: error});
+            res.status(500).json({msg: "Hi"});
 
         }
     }
@@ -135,7 +137,8 @@ app.post('/calc', (req, res) => {
         // 'Time': currentTime
     }
 
-    res.sendStatus(200).json(emission);
+    
+    res.status(200).json(emission);
 })
 
 app.listen(port, () => {

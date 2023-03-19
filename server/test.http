@@ -1,0 +1,34 @@
+POST http://localhost:5000/signup
+content-type: application/json
+
+{
+    "username": "mtuenmuk",
+    "password": "test"
+}
+
+###
+
+POST http://localhost:5000/login
+content-type: application/json
+
+{
+    "username": "mtuenmuk",
+    "password": "test"
+}
+
+###
+
+POST http://localhost:5000/calc
+content-type: application/json
+
+{
+    "Phone": 1,
+    "PC": 2,
+    "TV": 8,
+    "Car": 7,
+    "Bike": 9,
+    "Bus": 8,
+    "RedMeat": 5,
+    "Dairy": 6,
+    "Grains": 2
+}
