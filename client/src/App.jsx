@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-
-import Home from './home';
-import Login from './componets/login'
 import './App.css';
+
+
+import Home from './componets/home';
+import HomeAuth from './componets/homeAuth';
+import Login from './componets/login'
+
+
 
 function App() {
 
@@ -14,6 +18,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/signup" element={<Login/>} />
+        <Route path="/homeauth" element={<HomeAuth/>} />
+        <Route path="/account" element={<HomeAuth/>} />
       </Routes>
     </BrowserRouter>
   )
