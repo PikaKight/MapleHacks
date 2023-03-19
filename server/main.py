@@ -104,6 +104,4 @@ async def calc(req: Request):
         'Time': currentTime
     }
 
-    account.save()
-
-    return {"message": "Done"}
+    return emission

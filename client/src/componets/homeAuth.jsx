@@ -14,13 +14,14 @@ function HomeAuth() {
   const [redMeat, setRedMeat] = useState(0);
   const [dairy, setDairy] = useState(0);
   const [grains, setGrains] = useState(0);
+  const [emissions, setEmission] = useState({})
   const navigate = useNavigate();
 
     const redirect = () => {
         navigate('/account')
     }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault
 
     let body = {
@@ -45,7 +46,8 @@ function HomeAuth() {
     })
 
     fetch(request)
-
+    .then(res => {return res.json()})
+    .then(data => console.log(data))    
   }
 
   return (
@@ -152,6 +154,9 @@ function HomeAuth() {
             <input type='submit'/>
           </form>
         </div>
+      </div>
+      <div className="result">
+        
       </div>
     </div>
   )
