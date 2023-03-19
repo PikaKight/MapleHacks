@@ -10,3 +10,13 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.calc label, h2, h3{
+  text-align: left;
+  display: block;
+}
+
+.calc input{
+  width: 100%;
+  padding: 6px 10px;
+}
